@@ -5,7 +5,7 @@ import { RepresentativeService } from 'src/module/service/representative/represe
 @Resolver()
 export class RepresentativeResolver {
   constructor(private readonly representativeService: RepresentativeService) {}
-  @Query((returns) => [String])
+  @Query(() => String)
   sayHello() {
     return this.representativeService.sayHello();
   }

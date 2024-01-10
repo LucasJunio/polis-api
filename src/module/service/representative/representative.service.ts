@@ -8,8 +8,8 @@ export type Result = {
 export class RepresentativeService {
   constructor() {}
 
-  public sayHello(): Result {
+  public sayHello(): String {
     const helloWorld = 'Hello World';
-    return { helloWorld };
+    return 'Hello World';
   }
 }
