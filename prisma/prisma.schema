@@ -6,3 +6,44 @@ datasource db {
   provider = "sqlite"
   url      = env("DATABASE_URL")
 }
+
+model Representative {
+  id        Int         @id @default(autoincrement())
+  name      String
+  candidacy Candidacy[]
+}
+
+model Election {
+  id        Int         @id @default(autoincrement())
+  date      DateTime?
+  candidacy Candidacy[]
+}
+
+model Office {
+  id        Int         @id @default(autoincrement())
+  name      String
+  candidacy Candidacy[]
+}
+
+model Candidacy {
+  id               Int             @id @default(autoincrement())
+  electionId       Int?
+  officeId         Int?
+  representativeId Int?
+  Election         Election?       @relation(fields: [electionId], references: [id])
+  Office           Office?         @relation(fields: [officeId], references: [id])
+  Representative   Representative? @relation(fields: [representativeId], references: [id])
+}
+
+model State {
+  id   Int    @id @default(autoincrement())
+  name String
+  city City[]
+}
+
+model City {
+  id      Int    @id @default(autoincrement())
+  stateId Int
+  name    String
+  state   State  @relation(fields: [stateId], references: [id])
+}
