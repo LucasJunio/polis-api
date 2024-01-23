@@ -1,28 +1,16 @@
 import { Injectable } from '@nestjs/common';
+import { StateDTO } from 'src/module/dto/state.dto';
+import { StateRepository } from 'src/module/repository/state/state.repository';
 import { IStateService } from './state.service.interface';
-
-export type Result = {
-  helloWorld: String;
-};
 
 @Injectable()
 export class StateService implements IStateService {
-  constructor() {}
-  create(): Promise<void> {
-    throw new Error('Method not implemented.');
-  }
-  read(): Promise<void> {
-    throw new Error('Method not implemented.');
-  }
-  update(): Promise<void> {
-    throw new Error('Method not implemented.');
-  }
-  delete(): Promise<void> {
-    throw new Error('Method not implemented.');
-  }
+  constructor(private readonly stateRepository: StateRepository) {}
 
+  public async read(): Promise<StateDTO[]> {
+    return this.stateRepository.read();
+  }
   public sayHello(): String {
-    const helloWorld = 'Hello World';
-    return 'Hello World';
+    return 'Olá Mundo';
   }
 }

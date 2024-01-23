@@ -1,4 +1,4 @@
 import { RepresentativeService } from './representative/representative.service';
+import { StateService } from './state/state.service';
 
-//add here all services for dependency injection.
-export const services = [RepresentativeService];
+export const services = [RepresentativeService, StateService];

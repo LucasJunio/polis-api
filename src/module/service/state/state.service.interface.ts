@@ -1,6 +1,6 @@
-export interface IStateService {
-  create(): Promise<void>;
-  read(): Promise<void>;
-  update(): Promise<void>;
-  delete(): Promise<void>;
+import { StateDTO } from 'src/module/dto/state.dto';
+
+export abstract class IStateService {
+  abstract read(): Promise<StateDTO[]>;
+  abstract sayHello(): String;
 }
