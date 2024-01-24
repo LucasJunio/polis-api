@@ -47,7 +47,6 @@ Result:
 - [Node](https://nodejs.org/en/about/)
 - [NestJs](https://docs.nestjs.com/)
 - [Sqlite](https://www.sqlite.org/index.html)
-- [Prisma](https://www.prisma.io/)
 - [GitHub](https://github.com/)
 - [Jest](https://jestjs.io/)
 - [Docker](https://www.docker.com/resources/what-container)

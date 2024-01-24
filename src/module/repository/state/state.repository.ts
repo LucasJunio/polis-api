@@ -1,12 +1,13 @@
 import { PrismaClient } from '@prisma/client';
 import { StateDTO } from 'src/module/dto/state.dto';
+import { StateInput } from 'src/module/input/state/state.input';
 import { IStateRepository } from './state.repository.interface';
 
 const prisma = new PrismaClient();
 
 export class StateRepository implements IStateRepository {
-  public async create(): Promise<void> {
-    // return await prisma.currentAccount.create({ data });
+  public async create(data: StateInput): Promise<StateDTO> {
+    return await prisma.state.create({ data });
   }
 
   public async update(): Promise<void> {
