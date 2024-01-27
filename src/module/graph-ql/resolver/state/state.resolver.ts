@@ -16,4 +16,16 @@ export class StateResolver {
   async read(): Promise<StateDTO[]> {
     return await this.stateService.read();
   }
+
+  @Mutation((returns) => StateDTO)
+  async update(@Args('params') params: StateInput): Promise<StateDTO> {
+    return await this.stateService.update(params);
+  }
+
+  @Mutation((returns) => String)
+  async delete(@Args('params') params: StateInput): Promise<String> {
+    const { id } = params;
+    await this.stateService.delete({ id });
+    return 'success';
+  }
 }

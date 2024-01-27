@@ -10,22 +10,30 @@ export class StateRepository implements IStateRepository {
     return await prisma.state.create({ data });
   }
 
-  public async update(): Promise<void> {
-    // const { id, total, custumerId } = data;
-    // return await prisma.currentAccount.update({
-    //   where: {
-    //     id,
-    //   },
-    //   data: {
-    //     custumerId,
-    //     total,
-    //   },
-    // });
-  }
-
   public async read(): Promise<StateDTO[]> {
     return await prisma.state.findMany();
   }
 
-  public async delete(): Promise<void> {}
+  public async update(data: StateInput): Promise<StateDTO> {
+    const { id, name } = data;
+    return await prisma.state.update({
+      where: {
+        id,
+      },
+      data: {
+        name,
+      },
+    });
+  }
+
+  public async delete(data: { id: number }): Promise<void> {
+    const { id } = data;
+
+    const x = await prisma.state.delete({
+      where: {
+        id,
+      },
+    });
+    console.log(x);
+  }
 }
