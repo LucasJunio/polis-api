@@ -30,6 +30,8 @@ model Candidacy {
   electionId       Int?
   officeId         Int?
   representativeId Int?
+  cityId           Int?
+  city             City?           @relation(fields: [cityId], references: [id])
   Election         Election?       @relation(fields: [electionId], references: [id])
   Office           Office?         @relation(fields: [officeId], references: [id])
   Representative   Representative? @relation(fields: [representativeId], references: [id])
@@ -42,8 +44,9 @@ model State {
 }
 
 model City {
-  id      Int    @id @default(autoincrement())
-  stateId Int
-  name    String
-  state   State  @relation(fields: [stateId], references: [id])
+  id        Int         @id @default(autoincrement())
+  stateId   Int
+  name      String
+  state     State       @relation(fields: [stateId], references: [id])
+  Candidacy Candidacy[]
 }

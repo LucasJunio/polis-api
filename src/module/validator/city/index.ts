@@ -14,7 +14,7 @@ export const createCityValidation = Joi.object({
       'any.required': 'name is required.',
     }),
 
-  idState: Joi.number().integer().required().messages({
+  stateId: Joi.number().integer().required().messages({
     'number.base': `idState is a number (Integer).`,
   }),
 });
