@@ -34,6 +34,5 @@ export class StateRepository implements IStateRepository {
         id,
       },
     });
-    console.log(x);
   }
 }
