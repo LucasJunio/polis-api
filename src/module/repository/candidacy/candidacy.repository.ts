@@ -20,12 +20,7 @@ export class CandidancyRepository implements ICandidancyRepository {
       where: {
         id,
       },
-      data: {
-        electionId,
-        representativeId,
-        officeId,
-        cityId,
-      },
+      data,
     });
   }
 
